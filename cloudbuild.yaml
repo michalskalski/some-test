@@ -1,0 +1,18 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  script: |
+      #!/usr/bin/env bash
+      set -ex
+
+      if [ -f .git/shallow ]; then
+        git fetch --unshallow;
+      else
+        # the git repository may be unshallowed already. for example, when the build triggered by `gloucd builds commit` from a local machine
+        echo "skip unshallow git repository because it's already unshallowed"
+      fi
+- name: 'golang:1.22'
+  dir: products
+  script: |
+      #!/usr/bin/env bash
+      set -ex
+      make generate-migration
