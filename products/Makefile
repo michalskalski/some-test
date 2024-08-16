@@ -3,6 +3,9 @@ PRODUCTS = \
 	p2
 PRODUCT ?= p1
 
+SHELL := /bin/bash
+# -e: Exit immediately if a command exits with a non-zero status.
+# -o pipefail: If any command in a pipeline fails, the whole pipeline fails.
 .SHELLFLAGS := -eo pipefail -c
 
 FIRST_DB_SCHEMA_VER := 1
