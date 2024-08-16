@@ -17,6 +17,11 @@ generate-migration:
 
 .PHONY: generate-product-migration
 generate-product-migration:
-	echo $(LATEST_VERSION)
-	echo $(LATEST_TAG)
+	env \
+		GIT_TAG_PREFIX=$(GIT_TAG_PREFIX) \
+		./script.sh
+	env \
+		SOME=$(FIRST_DB_SCHEMA_VER) \
+		echo $(LATEST_VERSION); \
+		echo $(LATEST_TAG)
 
