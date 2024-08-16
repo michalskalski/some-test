@@ -1,7 +1,7 @@
 PRODUCTS = \
 	p1 \
 	p2
-PRODUCT ?= some-test
+PRODUCT ?= p1
 
 FIRST_DB_SCHEMA_VER := 1
 GIT_FETCH_ALL := git fetch --all --prune --prune-tags 1>/dev/null
