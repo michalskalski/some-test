@@ -3,6 +3,8 @@ PRODUCTS = \
 	p2
 PRODUCT ?= p1
 
+.SHELLFLAGS := -eo pipefail -c
+
 FIRST_DB_SCHEMA_VER := 1
 GIT_FETCH_ALL := git fetch --all --prune --prune-tags 1>/dev/null
 GIT_TAG_PREFIX = $(PRODUCT)/v
